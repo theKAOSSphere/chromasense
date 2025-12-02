@@ -1,5 +1,4 @@
 *.o
 config.h
-resample.h
-gxtuner
-GxTuner.png
+*.tgz
+*.tar.gz

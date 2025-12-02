@@ -1,10 +1,11 @@
-/*
+ /*
  * Copyright (C) 2009, 2010 Hermann Meyer, James Warden, Andreas Degert
  * Copyright (C) 2011 Pete Shorthose
+ * Copyright (C) 2025 KAOSS
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
+ * the Free Software Foundation; either version 3 of the License, or
  * (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful,
@@ -13,12 +14,8 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
- * --------------------------------------------------------------------------
+ * along with this program; if not, see <http://www.gnu.org/licenses/>.
  */
-
-/* ------- This is the guitarix tuner, part of gx_engine_audio.cpp ------- */
 
 /****************************************************************
  ** Pitch Tracker
@@ -28,13 +25,13 @@
  **
  */
 
-#include "./gx_pitch_tracker.h"
+#include "./chromasense_pitch_tracker.h"
 
 // downsampling factor
 static const int DOWNSAMPLE = 2;
 static const float SIGNAL_THRESHOLD_ON = 0.001;
-static const float SIGNAL_THRESHOLD_OFF = 0.0009;
-static const float TRACKER_PERIOD = 0.1;
+static const float SIGNAL_THRESHOLD_OFF = 0.000009;
+static const float TRACKER_PERIOD = 0.125; // Changed response time for less frequency fluctuation
 // The size of the read buffer
 static const int FFT_SIZE = 2048;
 
@@ -177,7 +174,15 @@ bool PitchTracker::setParameters(int sampleRate, int buffersize, pthread_t j_thr
         return false;
     }
     m_sampleRate = fixed_sampleRate / DOWNSAMPLE;
-    resamp.setup(sampleRate, m_sampleRate, 1, 16); // 16 == least quality
+    int res = resamp.setup(sampleRate, m_sampleRate, 1, 16); // 16 == least quality
+    if (res != 0) {
+        // Resampler setup failed - try without quality parameter
+        res = resamp.setup(sampleRate, m_sampleRate, 1, 32);
+        if (res != 0) {
+            error = true;
+            return false;
+        }
+    }
     jack_thread = j_thread;
 
     if (m_buffersize != buffersize) {
@@ -211,26 +216,11 @@ void PitchTracker::stop_thread() {
 }
 
 void PitchTracker::start_thread() {
-    int                min = 0, max = 0;
-    pthread_attr_t      attr;
-    struct sched_param  spar;
-    int priority, policy;
-    pthread_getschedparam(jack_thread, &policy, &spar);
-    priority = spar.sched_priority;
-    min = sched_get_priority_min(policy);
-    max = sched_get_priority_max(policy);
-    priority -= 6; // zita-convoler uses 5 levels
-    if (priority > max) priority = max;
-    if (priority < min) priority = min;
-    spar.sched_priority = priority;
+    pthread_attr_t attr;
     pthread_attr_init(&attr);
-    pthread_attr_setdetachstate(&attr,PTHREAD_CREATE_JOINABLE );
-    pthread_setcancelstate (PTHREAD_CANCEL_ENABLE, NULL);
-    pthread_attr_setschedpolicy(&attr, policy);
-    pthread_attr_setschedparam(&attr, &spar);
-    pthread_attr_setscope(&attr, PTHREAD_SCOPE_SYSTEM);
-    pthread_attr_setinheritsched(&attr, PTHREAD_EXPLICIT_SCHED);
-    // pthread_attr_setstacksize(&attr, 0x10000);
+    pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
+    pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
+    
     if (pthread_create(&m_pthr, &attr, static_run,
                        reinterpret_cast<void*>(this))) {
         error = true;
