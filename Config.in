@@ -1,0 +1,6 @@
+config BR2_PACKAGE_CHROMASENSE
+	bool "chromasense"
+	help
+	  A guitar tuner LV2 plugin, ported from the Guitarix project.
+
+	  https://github.com/theKAOSSphere/chromasense

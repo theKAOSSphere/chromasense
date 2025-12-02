@@ -1,0 +1,9 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+
+<https://github.com/theKAOSSphere/chromasense>
+    a lv2:Plugin ,
+        lv2:AnalyserPlugin ;
+    lv2:binary <chromasense.so> ;
+    rdfs:seeAlso <chromasense.ttl> .
