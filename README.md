@@ -25,7 +25,7 @@ This plugin is a direct port and enhancement of the Guitarix [`gxtuner`](https:/
 For most users, it is recommended to download the pre-built plugin from the **[Releases Page](https://github.com/theKAOSSphere/chromasense/releases)**.
 
 1.  Go to the [Releases Page](https://github.com/theKAOSSphere/chromasense/releases).
-2.  Download the latest `chromasense.lv2.zip` file.
+2.  Download the latest `chromasense.lv2-vx.x.tgz` file.
 3.  Unzip the file. You will have a folder named `chromasense.lv2`.
 
 ### For MOD Audio Devices
@@ -114,7 +114,7 @@ sudo apt-get install build-essential libfftw3-dev lv2-dev
 ## Credits and License
 
 *   **Original Algorithm:** This project is heavily based on the [`gxtuner`](https://github.com/brummer10/gxtuner) application by **Hermann Meyer (brummer10)**. All credit for the core pitch-detection logic goes to him.
-*   **zita-resampler:** The resampling functionality is provided by the [`zita-resampler`](https://kokkinizita.linuxaudio.org/linuxaudio/zita-resampler/resampler.html) library, created by Fons Adriaensen.
+*   **zita-resampler:** The resampling functionality is provided by the [`zita-resampler`](https://kokkinizita.linuxaudio.org/linuxaudio/zita-resampler/resampler.html) library, created by **Fons Adriaensen**.
 *   **LV2 Port & MODGUI:** Porting to the LV2 format and development of the MODGUI by **KAOSS**.
 
 This project is licensed under the GPLv3 license. Please see the [`LICENSE`](LICENSE) file for more details.
