@@ -1,0 +1,226 @@
+/* STYLES FOR THE JAPANESE PEDAL */
+
+@import url(/fonts/epf/stylesheet.css);
+@import url(/fonts/nexa/stylesheet.css);
+@import url(/fonts/pirulen/stylesheet.css);
+@import url(/fonts/questrial/stylesheet.css);
+
+/* = CONTAINER
+================================================ */
+.mod-pedal-japanese{{{cns}}} {
+    background-position:center center;
+    background-repeat:no-repeat;
+    height:530px;
+    position:absolute;
+    width:274px;
+    border-radius: 18px;
+}
+
+/* PORTS
+================================================ */
+
+.mod-pedal-japanese{{{cns}}}.mod-pedal .mod-pedal-input,
+.mod-pedal-japanese{{{cns}}}.mod-pedal .mod-pedal-output {
+    top: 186px;
+}
+
+/* = PLUGIN'S AUTHOR
+================================================ */
+.mod-pedal-japanese{{{cns}}} .mod-plugin-brand {
+    bottom:95px;
+    left:30px;
+    position:absolute;
+    right:30px;
+    text-align:center;
+    text-transform:uppercase;
+}
+
+.mod-pedal-japanese{{{cns}}} .mod-plugin-brand h1 {
+    color:#292d31;
+    font-family:"Nexa";
+    font-size:32px;
+    text-shadow:1px 2px 2px rgba(0,0,0,.5),2px 4px 5px rgba(0,0,0,.5),0px 0px 8px rgba(0,0,0,.5), -1px -1px 1px rgba(255,255,255,.2);
+}
+
+/* = PLUGIN'S NAME
+================================================ */
+.mod-pedal-japanese{{{cns}}} .mod-plugin-name {
+    bottom:210px;
+    left:30px;
+    overflow:hidden;
+    position:absolute;
+    right:30px;
+    text-align:right;
+    top:230px;
+}
+
+.mod-pedal-japanese{{{cns}}} .mod-plugin-name h1 {
+    font-family:"Questrial";
+    font-size:24px;
+    line-height:1;
+}
+
+/* = LIGHT ON/OFF
+================================================ */
+.mod-pedal-japanese{{{cns}}} .mod-light {
+    height:32px;
+    left:121px;
+    position:absolute;
+    top:197px;
+    width:32px;
+}
+
+/* = FOOTSWITCH
+================================================ */
+.mod-pedal-japanese{{{cns}}} .mod-footswitch {
+    bottom:46px;
+    cursor:pointer;
+    height:155px;
+    left:13px;
+    position:absolute;
+    right:13px;
+}
+
+
+/* = BACKGROUND IMAGES - Colour of the pedal
+================================================ */
+.mod-pedal-japanese{{{cns}}}.mod-white { background-image:url(/resources/pedals/japanese/white.png{{{ns}}}); }
+.mod-pedal-japanese{{{cns}}}.mod-white .mod-enumerated
+{
+    background-image:url(/resources/utils/dropdown-arrow-white.png{{{ns}}});
+}
+
+
+/* = TUNER DISPLAY SPECIFIC STYLES
+================================================ */
+.mod-pedal-japanese{{{cns}}} .mod-tuner-display {
+    position: absolute;
+    top: 2px; /* Moved display up */
+    left: 15px;
+    right: 15px;
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    transition: all 160ms ease-in-out;
+}
+
+.mod-pedal-japanese{{{cns}}} .mod-tuner-display.good {
+    /* The .good state will now only affect text color/glow, not the background */
+}
+
+.mod-pedal-japanese{{{cns}}} .mod-tuner-display.nosignal {
+    opacity: 0.8; /* Dim the text when there is no signal */
+}
+
+.mod-pedal-japanese{{{cns}}} .mod-display-group h2,
+.mod-pedal-japanese{{{cns}}} .mod-display-group h3,
+.mod-pedal-japanese{{{cns}}} .mod-display-group h4 {
+    margin: 1px 0; /* Tighter margin */
+    padding: 0;
+    font-family: monospace;
+    color: #e0e0e0; /* Slightly off-white for better blending */
+    text-shadow: 0 1px 4px rgba(0,0,0,0.9); /* Stronger shadow for readability */
+}
+
+.mod-pedal-japanese{{{cns}}} .mod-display-group h2 {
+    font-size: 48px; /* Larger note display */
+    display: inline-block;
+    width: 60px; /* Adjusted width */
+    text-align: center;
+}
+
+.mod-pedal-japanese{{{cns}}} .mod-display-group h4 {
+    font-size: 24px; /* Larger cent indicator */
+    font-weight: bold;
+    color: #d0d0d0;
+    height: 26px; /* reserve space */
+}
+
+.mod-pedal-japanese{{{cns}}} .mod-display-group h3 {
+    font-size: 18px; /* Adjusted size */
+    font-weight: 500;
+    color: #cccccc;
+}
+
+/* Tuner-specific display enhancements */
+.mod-pedal-japanese{{{cns}}} .mod-display-group .mod-note-octave {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2px; /* Increased spacing */
+}
+
+.mod-pedal-japanese{{{cns}}} .mod-display-group .mod-note-octave h2 {
+    font-size: 48px;
+    margin: 5px;
+}
+
+.mod-pedal-japanese{{{cns}}} .mod-display-group .mod-note-octave h2 + h2 {
+    font-size: 36px; /* Octave number */
+    opacity: 0.9;
+    padding-top: 8px; /* Align with baseline of note */
+}
+
+.mod-pedal-japanese{{{cns}}} .mod-display-group .mod-cent-freq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mod-pedal-japanese{{{cns}}} .mod-display-group .mod-cent-freq h3 {
+    font-size: 18px;
+    color: #f9f9f9;
+}
+
+.mod-pedal-japanese{{{cns}}} .mod-display-group .mod-cent-freq h3.good {
+    color: #00ff8c;
+    text-shadow: 0 0 10px rgba(0, 255, 140, 0.8), 0 0 4px rgba(0, 255, 140, 1);
+}
+
+.mod-pedal-japanese{{{cns}}} [mod-role=adjust] {
+    font-family: monospace;
+    font-size: 24px;
+    display: block;
+    /* margin-top: 2px; */
+    /* margin-bottom: 5px; */
+    color: #bcbcbc; /* was #cfcfcf – slightly darker */
+}
+
+/* Container holding the block meter needs bottom margin */
+.mod-pedal-japanese{{{cns}}} .mod-display-group:has([mod-role=adjust]) {
+    margin-bottom: 15px;
+}
+
+.mod-pedal-japanese{{{cns}}} .mod-display-group [mod-role=freq] {
+    transition: color 120ms ease, transform 120ms ease;
+    font-size: 14px; /* Made frequency smaller */
+    opacity: 0.7; /* And less prominent */
+    margin-top: 3px; /* Increased spacing */
+}
+
+.mod-pedal-japanese{{{cns}}} .mod-tuner-display.nosignal [mod-role=freq] {
+    color: #888;
+}
+
+/* New styles for flat/sharp indicators */
+.mod-pedal-japanese{{{cns}}} .mod-tuner-flat,
+.mod-pedal-japanese{{{cns}}} .mod-tuner-sharp {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    font-weight: bold;
+    color: #e0e0e0;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.9);
+    opacity: 0; /* Hidden by default */
+    transition: opacity 160ms ease-in-out;
+}
+
+.mod-pedal-japanese{{{cns}}} .mod-tuner-flat { left: 10px; }
+.mod-pedal-japanese{{{cns}}} .mod-tuner-sharp { right: 10px; }
+
+.mod-pedal-japanese{{{cns}}} .mod-tuner-display [mod-role="adjust"].good {
+    color: #00ff8c;
+    text-shadow: 0 0 10px rgba(0, 255, 140, 0.8), 0 0 4px rgba(0, 255, 140, 1);
+}

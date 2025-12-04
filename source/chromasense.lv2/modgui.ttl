@@ -1,0 +1,19 @@
+@prefix modgui: <http://moddevices.com/ns/modgui#> .
+@prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
+
+<https://github.com/theKAOSSphere/chromasense>
+    modgui:gui [
+        modgui:resourcesDirectory <modgui> ;
+        modgui:iconTemplate <modgui/icon-chromasense.html> ;
+        modgui:stylesheet <modgui/stylesheet-chromasense.css> ;
+        modgui:screenshot <modgui/screenshot-chromasense.png> ;
+        modgui:thumbnail <modgui/thumbnail-chromasense.png> ;
+        modgui:javascript <modgui/script-chromasense.js> ;
+        modgui:monitoredOutputs [ lv2:symbol "note" ] , [ lv2:symbol "octave" ] , [ lv2:symbol "cent" ] , [ lv2:symbol "freq" ] ;
+        modgui:brand "KAOSS" ;
+        modgui:label "ChromaSense" ;
+        modgui:model "japanese" ;
+        modgui:panel "4-knobs" ;
+        modgui:color "white" ;
+        modgui:knob "black" ;
+    ] .

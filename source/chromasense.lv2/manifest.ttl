@@ -6,4 +6,5 @@
     a lv2:Plugin ,
         lv2:AnalyserPlugin ;
     lv2:binary <chromasense.so> ;
-    rdfs:seeAlso <chromasense.ttl> .
+    rdfs:seeAlso <chromasense.ttl> ;
+    rdfs:seeAlso <modgui.ttl> .
