@@ -159,7 +159,7 @@
 .mod-pedal-japanese{{{cns}}} .mod-display-group .mod-note-octave h2 + h2 {
     font-size: 36px; /* Octave number */
     opacity: 0.9;
-    padding-top: 8px; /* Align with baseline of note */
+    padding-top: 7px; /* Align with baseline of note */
 }
 
 .mod-pedal-japanese{{{cns}}} .mod-display-group .mod-cent-freq {
