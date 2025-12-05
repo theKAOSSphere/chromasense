@@ -17,6 +17,8 @@ This plugin is a direct port and enhancement of the Guitarix [`gxtuner`](https:/
     *   A large, clear display for the detected note and octave.
     *   A precise cents (`ct`) readout.
     *   A sliding triple-block meter (`███`) that provides intuitive visual feedback for fine-tuning, glowing green when the note is within a ±2 cent range.
+*   **Mute Functionality:** A dedicated mute button to silence the output while tuning.
+*   **Signal Passthrough:**  Features an output port, which allows placing the tuner anywhere in the signal chain.
 
 ---
 
