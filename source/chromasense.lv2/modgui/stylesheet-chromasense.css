@@ -208,7 +208,7 @@
 .mod-pedal-japanese{{{cns}}} .mod-tuner-sharp {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-35%);
     font-size: 30px;
     font-weight: bold;
     color: #e0e0e0;
